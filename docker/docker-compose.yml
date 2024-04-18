@@ -1,0 +1,18 @@
+---
+version: "3"
+
+services:
+  dev_container:
+    image: dev_container:latest
+    restart: always
+    build:
+      context: .
+    environment:
+      DISPLAY: :1
+    ports:
+      - "24:22"
+    volumes:
+      - build_data:/tmp/SlowLoadDemo
+      - /tmp/.X11-unix:/tmp/.X11-unix
+volumes:
+  build_data:
